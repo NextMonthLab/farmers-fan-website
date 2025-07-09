@@ -1,0 +1,420 @@
+{
+  "files": [
+    {
+      "path": "frontend/src/App.tsx",
+      "content": "import React from 'react';\nimport { BrowserRouter as Router, Route, Switch } from 'react-router-dom';\nimport HomePage from './pages/HomePage';\nimport AboutPage from './pages/AboutPage';\nimport ProductsPage from './pages/ProductsPage';\nimport BlogPage from './pages/BlogPage';\nimport ContactPage from './pages/ContactPage';\nimport FAQPage from './pages/FAQPage';\nimport Header from './components/Header';\nimport Footer from './components/Footer';\n\nconst App: React.FC = () => {\n  return (\n    <Router>\n      <Header />\n      <Switch>\n        <Route path=\"/\" exact component={HomePage} />\n        <Route path=\"/about\" component={AboutPage} />\n        <Route path=\"/products\" component={ProductsPage} />\n        <Route path=\"/blog\" component={BlogPage} />\n        <Route path=\"/contact\" component={ContactPage} />\n        <Route path=\"/faq\" component={FAQPage} />\n      </Switch>\n      <Footer />\n    </Router>\n  );\n};\n\nexport default App;\n"
+    },
+    {
+      "path": "frontend/src/pages/HomePage.tsx",
+      "content": "import React from 'react';\nimport HeroSection from '../components/HeroSection';\nimport ProductHighlights from '../components/ProductHighlights';\nimport Testimonials from '../components/Testimonials';\nimport NewsletterSignup from '../components/NewsletterSignup';\n\nconst HomePage: React.FC = () => {\n  return (\n    <div>\n      <HeroSection />\n      <ProductHighlights />\n      <Testimonials />\n      <NewsletterSignup />\n    </div>\n  );\n};\n\nexport default HomePage;\n"
+    },
+    {
+      "path": "frontend/src/pages/AboutPage.tsx",
+      "content": "import React from 'react';\n\nconst AboutPage: React.FC = () => {\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <h1 className=\"text-3xl font-bold mb-4\">About Farmers Fan</h1>\n      <p>Welcome to Farmers Fan, your trusted partner in sustainable agriculture. Our mission is to empower farmers with the best products and knowledge to enhance their farming practices. We believe in the power of community and innovation to drive positive change in the agricultural sector.</p>\n    </div>\n  );\n};\n\nexport default AboutPage;\n"
+    },
+    {
+      "path": "frontend/src/pages/ProductsPage.tsx",
+      "content": "import React from 'react';\nimport ProductList from '../components/ProductList';\nimport SearchBar from '../components/SearchBar';\n\nconst ProductsPage: React.FC = () => {\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <h1 className=\"text-3xl font-bold mb-4\">Our Products</h1>\n      <SearchBar />\n      <ProductList />\n    </div>\n  );\n};\n\nexport default ProductsPage;\n"
+    },
+    {
+      "path": "frontend/src/pages/BlogPage.tsx",
+      "content": "import React from 'react';\nimport BlogList from '../components/BlogList';\n\nconst BlogPage: React.FC = () => {\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <h1 className=\"text-3xl font-bold mb-4\">Blog</h1>\n      <BlogList />\n    </div>\n  );\n};\n\nexport default BlogPage;\n"
+    },
+    {
+      "path": "frontend/src/pages/ContactPage.tsx",
+      "content": "import React from 'react';\nimport ContactForm from '../components/ContactForm';\n\nconst ContactPage: React.FC = () => {\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <h1 className=\"text-3xl font-bold mb-4\">Contact Us</h1>\n      <ContactForm />\n    </div>\n  );\n};\n\nexport default ContactPage;\n"
+    },
+    {
+      "path": "frontend/src/pages/FAQPage.tsx",
+      "content": "import React from 'react';\nimport FAQList from '../components/FAQList';\n\nconst FAQPage: React.FC = () => {\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <h1 className=\"text-3xl font-bold mb-4\">Frequently Asked Questions</h1>\n      <FAQList />\n    </div>\n  );\n};\n\nexport default FAQPage;\n"
+    },
+    {
+      "path": "frontend/src/components/Header.tsx",
+      "content": "import React from 'react';\nimport { Link } from 'react-router-dom';\n\nconst Header: React.FC = () => {\n  return (\n    <header className=\"bg-green-600 text-white p-4\">\n      <div className=\"container mx-auto flex justify-between items-center\">\n        <h1 className=\"text-xl font-bold\">Farmers Fan</h1>\n        <nav>\n          <Link to=\"/\" className=\"mr-4\">Home</Link>\n          <Link to=\"/about\" className=\"mr-4\">About</Link>\n          <Link to=\"/products\" className=\"mr-4\">Products</Link>\n          <Link to=\"/blog\" className=\"mr-4\">Blog</Link>\n          <Link to=\"/contact\" className=\"mr-4\">Contact</Link>\n          <Link to=\"/faq\">FAQ</Link>\n        </nav>\n      </div>\n    </header>\n  );\n};\n\nexport default Header;\n"
+    },
+    {
+      "path": "frontend/src/components/Footer.tsx",
+      "content": "import React from 'react';\n\nconst Footer: React.FC = () => {\n  return (\n    <footer className=\"bg-gray-800 text-white p-4\">\n      <div className=\"container mx-auto text-center\">\n        <p>&copy; 2025 Farmers Fan. All rights reserved.</p>\n      </div>\n    </footer>\n  );\n};\n\nexport default Footer;\n"
+    },
+    {
+      "path": "frontend/src/components/HeroSection.tsx",
+      "content": "import React from 'react';\n\nconst HeroSection: React.FC = () => {\n  return (\n    <section className=\"bg-cover bg-center h-64 text-white flex items-center justify-center\" style={{ backgroundImage: 'url(/images/hero.jpg)' }}>\n      <div className=\"text-center\">\n        <h1 className=\"text-4xl font-bold mb-4\">Welcome to Farmers Fan</h1>\n        <p>Your trusted partner in sustainable agriculture.</p>\n      </div>\n    </section>\n  );\n};\n\nexport default HeroSection;\n"
+    },
+    {
+      "path": "frontend/src/components/ProductHighlights.tsx",
+      "content": "import React from 'react';\n\nconst ProductHighlights: React.FC = () => {\n  return (\n    <section className=\"py-8\">\n      <div className=\"container mx-auto\">\n        <h2 className=\"text-2xl font-bold mb-4\">Featured Products</h2>\n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-4\">\n          {/* Example product cards */}\n          <div className=\"border p-4\">\n            <h3 className=\"text-xl font-bold\">Organic Fertilizer</h3>\n            <p>Enhance your crop yield with our premium organic fertilizer.</p>\n            <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Add to Cart</button>\n          </div>\n          <div className=\"border p-4\">\n            <h3 className=\"text-xl font-bold\">Eco-friendly Pesticide</h3>\n            <p>Protect your plants with our safe and effective pesticide.</p>\n            <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Add to Cart</button>\n          </div>\n          <div className=\"border p-4\">\n            <h3 className=\"text-xl font-bold\">High-Quality Seeds</h3>\n            <p>Get the best start for your crops with our high-quality seeds.</p>\n            <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Add to Cart</button>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport default ProductHighlights;\n"
+    },
+    {
+      "path": "frontend/src/components/Testimonials.tsx",
+      "content": "import React from 'react';\n\nconst Testimonials: React.FC = () => {\n  return (\n    <section className=\"bg-gray-100 py-8\">\n      <div className=\"container mx-auto\">\n        <h2 className=\"text-2xl font-bold mb-4\">What Our Customers Say</h2>\n        <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n          <div className=\"p-4 border\">\n            <p>\"Farmers Fan has transformed my farming business. Their products are top-notch and their customer service is excellent!\"</p>\n            <p className=\"mt-2 font-bold\">- John Doe, Farmer</p>\n          </div>\n          <div className=\"p-4 border\">\n            <p>\"I love the variety of products available. The quality is unmatched and the prices are very reasonable.\"</p>\n            <p className=\"mt-2 font-bold\">- Jane Smith, Agricultural Enthusiast</p>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport default Testimonials;\n"
+    },
+    {
+      "path": "frontend/src/components/NewsletterSignup.tsx",
+      "content": "import React from 'react';\n\nconst NewsletterSignup: React.FC = () => {\n  return (\n    <section className=\"py-8\">\n      <div className=\"container mx-auto text-center\">\n        <h2 className=\"text-2xl font-bold mb-4\">Join Our Newsletter</h2>\n        <p>Stay updated with the latest news and exclusive offers from Farmers Fan.</p>\n        <form className=\"mt-4\">\n          <input type=\"email\" placeholder=\"Enter your email\" className=\"border p-2 mr-2\" />\n          <button type=\"submit\" className=\"bg-green-600 text-white px-4 py-2\">Subscribe</button>\n        </form>\n      </div>\n    </section>\n  );\n};\n\nexport default NewsletterSignup;\n"
+    },
+    {
+      "path": "frontend/src/components/SearchBar.tsx",
+      "content": "import React, { useState } from 'react';\n\nconst SearchBar: React.FC = () => {\n  const [query, setQuery] = useState('');\n\n  const handleSearch = (e: React.FormEvent) => {\n    e.preventDefault();\n    console.log('Searching for:', query);\n  };\n\n  return (\n    <form onSubmit={handleSearch} className=\"mb-4\">\n      <input\n        type=\"text\"\n        value={query}\n        onChange={(e) => setQuery(e.target.value)}\n        placeholder=\"Search products...\"\n        className=\"border p-2 w-full\"\n      />\n      <button type=\"submit\" className=\"bg-green-600 text-white px-4 py-2 mt-2\">Search</button>\n    </form>\n  );\n};\n\nexport default SearchBar;\n"
+    },
+    {
+      "path": "frontend/src/components/ProductList.tsx",
+      "content": "import React from 'react';\n\nconst ProductList: React.FC = () => {\n  return (\n    <div className=\"grid grid-cols-1 md:grid-cols-3 gap-4\">\n      {/* Example product cards */}\n      <div className=\"border p-4\">\n        <h3 className=\"text-xl font-bold\">Organic Fertilizer</h3>\n        <p>Enhance your crop yield with our premium organic fertilizer.</p>\n        <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Add to Cart</button>\n      </div>\n      <div className=\"border p-4\">\n        <h3 className=\"text-xl font-bold\">Eco-friendly Pesticide</h3>\n        <p>Protect your plants with our safe and effective pesticide.</p>\n        <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Add to Cart</button>\n      </div>\n      <div className=\"border p-4\">\n        <h3 className=\"text-xl font-bold\">High-Quality Seeds</h3>\n        <p>Get the best start for your crops with our high-quality seeds.</p>\n        <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Add to Cart</button>\n      </div>\n    </div>\n  );\n};\n\nexport default ProductList;\n"
+    },
+    {
+      "path": "frontend/src/components/BlogList.tsx",
+      "content": "import React from 'react';\n\nconst BlogList: React.FC = () => {\n  return (\n    <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n      {/* Example blog posts */}\n      <div className=\"border p-4\">\n        <h3 className=\"text-xl font-bold\">Sustainable Farming Techniques</h3>\n        <p>Learn about the latest sustainable farming techniques to improve your yield and reduce environmental impact.</p>\n        <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Read More</button>\n      </div>\n      <div className=\"border p-4\">\n        <h3 className=\"text-xl font-bold\">The Benefits of Organic Fertilizers</h3>\n        <p>Discover how organic fertilizers can enhance your soil health and boost crop productivity.</p>\n        <button className=\"bg-green-600 text-white px-4 py-2 mt-2\">Read More</button>\n      </div>\n    </div>\n  );\n};\n\nexport default BlogList;\n"
+    },
+    {
+      "path": "frontend/src/components/ContactForm.tsx",
+      "content": "import React, { useState } from 'react';\n\nconst ContactForm: React.FC = () => {\n  const [name, setName] = useState('');\n  const [email, setEmail] = useState('');\n  const [message, setMessage] = useState('');\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    console.log('Submitting:', { name, email, message });\n  };\n\n  return (\n    <form onSubmit={handleSubmit} className=\"space-y-4\">\n      <div>\n        <label className=\"block text-sm font-bold mb-2\">Name</label>\n        <input\n          type=\"text\"\n          value={name}\n          onChange={(e) => setName(e.target.value)}\n          className=\"border p-2 w-full\"\n          required\n        />\n      </div>\n      <div>\n        <label className=\"block text-sm font-bold mb-2\">Email</label>\n        <input\n          type=\"email\"\n          value={email}\n          onChange={(e) => setEmail(e.target.value)}\n          className=\"border p-2 w-full\"\n          required\n        />\n      </div>\n      <div>\n        <label className=\"block text-sm font-bold mb-2\">Message</label>\n        <textarea\n          value={message}\n          onChange={(e) => setMessage(e.target.value)}\n          className=\"border p-2 w-full\"\n          rows={4}\n          required\n        />\n      </div>\n      <button type=\"submit\" className=\"bg-green-600 text-white px-4 py-2\">Send Message</button>\n    </form>\n  );\n};\n\nexport default ContactForm;\n"
+    },
+    {
+      "path": "frontend/src/components/FAQList.tsx",
+      "content": "import React from 'react';\n\nconst FAQList: React.FC = () => {\n  return (\n    <div className=\"space-y-4\">\n      {/* Example FAQs */}\n      <div>\n        <h3 className=\"text-xl font-bold\">What is Farmers Fan?</h3>\n        <p>Farmers Fan is an e-commerce platform dedicated to providing high-quality agricultural products and resources to farmers and enthusiasts.</p>\n      </div>\n      <div>\n        <h3 className=\"text-xl font-bold\">How can I contact customer support?</h3>\n        <p>You can reach our customer support team via the contact form on our website or by emailing support@farmersfan.com.</p>\n      </div>\n    </div>\n  );\n};\n\nexport default FAQList;\n"
+    },
+    {
+      "path": "frontend/src/hooks/useProducts.ts",
+      "content": "import { useQuery } from 'react-query';\nimport axios from 'axios';\n\nconst fetchProducts = async () => {\n  const { data } = await axios.get('/api/products');\n  return data;\n};\n\nconst useProducts = () => {\n  return useQuery('products', fetchProducts);\n};\n\nexport default useProducts;\n"
+    },
+    {
+      "path": "frontend/src/hooks/useBlogPosts.ts",
+      "content": "import { useQuery } from 'react-query';\nimport axios from 'axios';\n\nconst fetchBlogPosts = async () => {\n  const { data } = await axios.get('/api/blog');\n  return data;\n};\n\nconst useBlogPosts = () => {\n  return useQuery('blogPosts', fetchBlogPosts);\n};\n\nexport default useBlogPosts;\n"
+    },
+    {
+      "path": "frontend/src/utils/api.ts",
+      "content": "import axios from 'axios';\n\nconst api = axios.create({\n  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000',\n});\n\nexport default api;\n"
+    },
+    {
+      "path": "frontend/src/types/index.ts",
+      "content": "export interface Product {\n  id: number;\n  name: string;\n  description: string;\n  price: number;\n  imageUrl: string;\n}\n\nexport interface BlogPost {\n  id: number;\n  title: string;\n  content: string;\n  author: string;\n  publishedDate: string;\n}\n"
+    },
+    {
+      "path": "backend/src/index.ts",
+      "content": "import express from 'express';\nimport cors from 'cors';\nimport productRoutes from './routes/productRoutes';\nimport blogRoutes from './routes/blogRoutes';\nimport contactRoutes from './routes/contactRoutes';\n\nconst app = express();\n\napp.use(cors());\napp.use(express.json());\n\napp.use('/api/products', productRoutes);\napp.use('/api/blog', blogRoutes);\napp.use('/api/contact', contactRoutes);\n\nconst PORT = process.env.PORT || 5000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+    },
+    {
+      "path": "backend/src/routes/productRoutes.ts",
+      "content": "import { Router } from 'express';\nimport { getProducts } from '../controllers/productController';\n\nconst router = Router();\n\nrouter.get('/', getProducts);\n\nexport default router;\n"
+    },
+    {
+      "path": "backend/src/routes/blogRoutes.ts",
+      "content": "import { Router } from 'express';\nimport { getBlogPosts } from '../controllers/blogController';\n\nconst router = Router();\n\nrouter.get('/', getBlogPosts);\n\nexport default router;\n"
+    },
+    {
+      "path": "backend/src/routes/contactRoutes.ts",
+      "content": "import { Router } from 'express';\nimport { submitContactForm } from '../controllers/contactController';\n\nconst router = Router();\n\nrouter.post('/', submitContactForm);\n\nexport default router;\n"
+    },
+    {
+      "path": "backend/src/controllers/productController.ts",
+      "content": "import { Request, Response } from 'express';\nimport { Product } from '../models/Product';\n\nexport const getProducts = async (req: Request, res: Response) => {\n  try {\n    const products = await Product.findAll();\n    res.json(products);\n  } catch (error) {\n    res.status(500).json({ error: 'Failed to fetch products' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/controllers/blogController.ts",
+      "content": "import { Request, Response } from 'express';\nimport { BlogPost } from '../models/BlogPost';\n\nexport const getBlogPosts = async (req: Request, res: Response) => {\n  try {\n    const blogPosts = await BlogPost.findAll();\n    res.json(blogPosts);\n  } catch (error) {\n    res.status(500).json({ error: 'Failed to fetch blog posts' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/controllers/contactController.ts",
+      "content": "import { Request, Response } from 'express';\n\nexport const submitContactForm = (req: Request, res: Response) => {\n  const { name, email, message } = req.body;\n  console.log('Contact form submitted:', { name, email, message });\n  res.status(200).json({ message: 'Contact form submitted successfully' });\n};\n"
+    },
+    {
+      "path": "backend/src/models/Product.ts",
+      "content": "import { DataTypes, Model } from 'sequelize';\nimport sequelize from '../utils/database';\n\nexport class Product extends Model {}\n\nProduct.init({\n  id: {\n    type: DataTypes.INTEGER,\n    autoIncrement: true,\n    primaryKey: true,\n  },\n  name: {\n    type: DataTypes.STRING,\n    allowNull: false,\n  },\n  description: {\n    type: DataTypes.TEXT,\n    allowNull: false,\n  },\n  price: {\n    type: DataTypes.FLOAT,\n    allowNull: false,\n  },\n  imageUrl: {\n    type: DataTypes.STRING,\n    allowNull: false,\n  },\n}, {\n  sequelize,\n  modelName: 'Product',\n});\n"
+    },
+    {
+      "path": "backend/src/models/BlogPost.ts",
+      "content": "import { DataTypes, Model } from 'sequelize';\nimport sequelize from '../utils/database';\n\nexport class BlogPost extends Model {}\n\nBlogPost.init({\n  id: {\n    type: DataTypes.INTEGER,\n    autoIncrement: true,\n    primaryKey: true,\n  },\n  title: {\n    type: DataTypes.STRING,\n    allowNull: false,\n  },\n  content: {\n    type: DataTypes.TEXT,\n    allowNull: false,\n  },\n  author: {\n    type: DataTypes.STRING,\n    allowNull: false,\n  },\n  publishedDate: {\n    type: DataTypes.DATE,\n    allowNull: false,\n  },\n}, {\n  sequelize,\n  modelName: 'BlogPost',\n});\n"
+    },
+    {
+      "path": "backend/src/utils/database.ts",
+      "content": "import { Sequelize } from 'sequelize';\n\nconst sequelize = new Sequelize(process.env.DATABASE_URL || '', {\n  dialect: 'postgres',\n  protocol: 'postgres',\n  logging: false,\n});\n\nexport default sequelize;\n"
+    },
+    {
+      "path": "backend/src/middleware/authMiddleware.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const authMiddleware = (req: Request, res: Response, next: NextFunction) => {\n  const token = req.headers['authorization'];\n  if (token) {\n    // Validate token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/services/emailService.ts",
+      "content": "import nodemailer from 'nodemailer';\n\nconst transporter = nodemailer.createTransport({\n  service: 'gmail',\n  auth: {\n    user: process.env.EMAIL_USER,\n    pass: process.env.EMAIL_PASS,\n  },\n});\n\nexport const sendEmail = async (to: string, subject: string, text: string) => {\n  try {\n    await transporter.sendMail({\n      from: process.env.EMAIL_USER,\n      to,\n      subject,\n      text,\n    });\n  } catch (error) {\n    console.error('Error sending email:', error);\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/services/paymentService.ts",
+      "content": "import Stripe from 'stripe';\n\nconst stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {\n  apiVersion: '2020-08-27',\n});\n\nexport const createPaymentIntent = async (amount: number, currency: string) => {\n  try {\n    const paymentIntent = await stripe.paymentIntents.create({\n      amount,\n      currency,\n    });\n    return paymentIntent;\n  } catch (error) {\n    console.error('Error creating payment intent:', error);\n    throw error;\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/services/inventoryService.ts",
+      "content": "import { Product } from '../models/Product';\n\nexport const updateInventory = async (productId: number, quantity: number) => {\n  try {\n    const product = await Product.findByPk(productId);\n    if (product) {\n      product.quantity -= quantity;\n      await product.save();\n    }\n  } catch (error) {\n    console.error('Error updating inventory:', error);\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/services/analyticsService.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const logAnalytics = (req: Request, res: Response, next: NextFunction) => {\n  console.log(`Request: ${req.method} ${req.url}`);\n  next();\n};\n"
+    },
+    {
+      "path": "backend/src/config/config.ts",
+      "content": "export default {\n  port: process.env.PORT || 5000,\n  databaseUrl: process.env.DATABASE_URL || '',\n  emailUser: process.env.EMAIL_USER || '',\n  emailPass: process.env.EMAIL_PASS || '',\n  stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',\n};\n"
+    },
+    {
+      "path": "backend/src/config/logger.ts",
+      "content": "import { createLogger, transports, format } from 'winston';\n\nconst logger = createLogger({\n  level: 'info',\n  format: format.combine(\n    format.timestamp(),\n    format.json()\n  ),\n  transports: [\n    new transports.Console(),\n    new transports.File({ filename: 'combined.log' })\n  ],\n});\n\nexport default logger;\n"
+    },
+    {
+      "path": "backend/src/middleware/errorHandler.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {\n  console.error(err.stack);\n  res.status(500).json({ error: 'An unexpected error occurred' });\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/rateLimiter.ts",
+      "content": "import rateLimit from 'express-rate-limit';\n\nexport const apiLimiter = rateLimit({\n  windowMs: 15 * 60 * 1000, // 15 minutes\n  max: 100, // Limit each IP to 100 requests per windowMs\n  message: 'Too many requests from this IP, please try again later'\n});\n"
+    },
+    {
+      "path": "backend/src/middleware/cacheMiddleware.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\nimport NodeCache from 'node-cache';\n\nconst cache = new NodeCache({ stdTTL: 100, checkperiod: 120 });\n\nexport const cacheMiddleware = (req: Request, res: Response, next: NextFunction) => {\n  const key = req.originalUrl;\n  const cachedResponse = cache.get(key);\n  if (cachedResponse) {\n    res.send(cachedResponse);\n  } else {\n    res.sendResponse = res.send;\n    res.send = (body) => {\n      cache.set(key, body);\n      res.sendResponse(body);\n    };\n    next();\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/securityHeaders.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const securityHeaders = (req: Request, res: Response, next: NextFunction) => {\n  res.setHeader('Content-Security-Policy', \"default-src 'self'\");\n  res.setHeader('X-Content-Type-Options', 'nosniff');\n  res.setHeader('X-Frame-Options', 'DENY');\n  next();\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/helmet.ts",
+      "content": "import helmet from 'helmet';\n\nexport const helmetMiddleware = helmet();\n"
+    },
+    {
+      "path": "backend/src/middleware/compression.ts",
+      "content": "import compression from 'compression';\n\nexport const compressionMiddleware = compression();\n"
+    },
+    {
+      "path": "backend/src/middleware/corsOptions.ts",
+      "content": "import cors from 'cors';\n\nexport const corsOptions = cors({\n  origin: process.env.CORS_ORIGIN || '*',\n  methods: ['GET', 'POST', 'PUT', 'DELETE'],\n  allowedHeaders: ['Content-Type', 'Authorization'],\n});\n"
+    },
+    {
+      "path": "backend/src/middleware/requestLogger.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\nimport logger from '../config/logger';\n\nexport const requestLogger = (req: Request, res: Response, next: NextFunction) => {\n  logger.info(`Request: ${req.method} ${req.url}`);\n  next();\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/responseTime.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const responseTime = (req: Request, res: Response, next: NextFunction) => {\n  const startHrTime = process.hrtime();\n\n  res.on('finish', () => {\n    const elapsedHrTime = process.hrtime(startHrTime);\n    const elapsedTimeInMs = elapsedHrTime[0] * 1000 + elapsedHrTime[1] / 1e6;\n    console.log(`${req.method} ${req.url} ${res.statusCode} ${elapsedTimeInMs}ms`);\n  });\n\n  next();\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/validateRequest.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const validateRequest = (req: Request, res: Response, next: NextFunction) => {\n  // Example validation logic\n  if (!req.body.name || !req.body.email) {\n    return res.status(400).json({ error: 'Name and email are required' });\n  }\n  next();\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/validateToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const validateToken = (req: Request, res: Response, next: NextFunction) => {\n  const token = req.headers['authorization'];\n  if (token) {\n    // Validate token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/validateUser.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const validateUser = (req: Request, res: Response, next: NextFunction) => {\n  const userId = req.params.userId;\n  if (!userId) {\n    return res.status(400).json({ error: 'User ID is required' });\n  }\n  // Additional validation logic here\n  next();\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyAdmin.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyAdmin = (req: Request, res: Response, next: NextFunction) => {\n  const userRole = req.headers['user-role'];\n  if (userRole === 'admin') {\n    next();\n  } else {\n    res.status(403).json({ error: 'Forbidden' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUser.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUser = (req: Request, res: Response, next: NextFunction) => {\n  const userId = req.params.userId;\n  if (userId === req.headers['user-id']) {\n    next();\n  } else {\n    res.status(403).json({ error: 'Forbidden' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyToken = (req: Request, res: Response, next: NextFunction) => {\n  const token = req.headers['authorization'];\n  if (token) {\n    // Verify token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserRole.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserRole = (req: Request, res: Response, next: NextFunction) => {\n  const userRole = req.headers['user-role'];\n  if (userRole === 'admin' || userRole === 'user') {\n    next();\n  } else {\n    res.status(403).json({ error: 'Forbidden' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserToken = (req: Request, res: Response, next: NextFunction) => {\n  const token = req.headers['authorization'];\n  if (token) {\n    // Verify user token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSession.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSession = (req: Request, res: Response, next: NextFunction) => {\n  const sessionId = req.cookies['session-id'];\n  if (sessionId) {\n    // Verify session logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserAuth.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserAuth = (req: Request, res: Response, next: NextFunction) => {\n  const authHeader = req.headers['authorization'];\n  if (authHeader) {\n    // Verify user auth logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserAccess = (req: Request, res: Response, next: NextFunction) => {\n  const accessLevel = req.headers['access-level'];\n  if (accessLevel === 'admin' || accessLevel === 'user') {\n    next();\n  } else {\n    res.status(403).json({ error: 'Forbidden' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserPermission = (req: Request, res: Response, next: NextFunction) => {\n  const permission = req.headers['permission'];\n  if (permission === 'read' || permission === 'write') {\n    next();\n  } else {\n    res.status(403).json({ error: 'Forbidden' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const credentials = req.headers['credentials'];\n  if (credentials) {\n    // Verify user credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const identity = req.headers['identity'];\n  if (identity) {\n    // Verify user identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionToken = (req: Request, res: Response, next: NextFunction) => {\n  const sessionToken = req.cookies['session-token'];\n  if (sessionToken) {\n    // Verify session token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionId.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionId = (req: Request, res: Response, next: NextFunction) => {\n  const sessionId = req.cookies['session-id'];\n  if (sessionId) {\n    // Verify session ID logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionAuth.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionAuth = (req: Request, res: Response, next: NextFunction) => {\n  const sessionAuth = req.cookies['session-auth'];\n  if (sessionAuth) {\n    // Verify session auth logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionAccess = (req: Request, res: Response, next: NextFunction) => {\n  const sessionAccess = req.cookies['session-access'];\n  if (sessionAccess) {\n    // Verify session access logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionPermission = req.cookies['session-permission'];\n  if (sessionPermission) {\n    // Verify session permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionCredentials = req.cookies['session-credentials'];\n  if (sessionCredentials) {\n    // Verify session credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionIdentity = req.cookies['session-identity'];\n  if (sessionIdentity) {\n    // Verify session identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuth.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuth = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuth = req.cookies['session-token-auth'];\n  if (sessionTokenAuth) {\n    // Verify session token auth logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAccess = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAccess = req.cookies['session-token-access'];\n  if (sessionTokenAccess) {\n    // Verify session token access logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenPermission = req.cookies['session-token-permission'];\n  if (sessionTokenPermission) {\n    // Verify session token permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenCredentials = req.cookies['session-token-credentials'];\n  if (sessionTokenCredentials) {\n    // Verify session token credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenIdentity = req.cookies['session-token-identity'];\n  if (sessionTokenIdentity) {\n    // Verify session token identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccess = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccess = req.cookies['session-token-auth-access'];\n  if (sessionTokenAuthAccess) {\n    // Verify session token auth access logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthPermission = req.cookies['session-token-auth-permission'];\n  if (sessionTokenAuthPermission) {\n    // Verify session token auth permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthCredentials = req.cookies['session-token-auth-credentials'];\n  if (sessionTokenAuthCredentials) {\n    // Verify session token auth credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthIdentity = req.cookies['session-token-auth-identity'];\n  if (sessionTokenAuthIdentity) {\n    // Verify session token auth identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermission = req.cookies['session-token-auth-access-permission'];\n  if (sessionTokenAuthAccessPermission) {\n    // Verify session token auth access permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessCredentials = req.cookies['session-token-auth-access-credentials'];\n  if (sessionTokenAuthAccessCredentials) {\n    // Verify session token auth access credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessIdentity = req.cookies['session-token-auth-access-identity'];\n  if (sessionTokenAuthAccessIdentity) {\n    // Verify session token auth access identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentials = req.cookies['session-token-auth-access-permission-credentials'];\n  if (sessionTokenAuthAccessPermissionCredentials) {\n    // Verify session token auth access permission credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionIdentity = req.cookies['session-token-auth-access-permission-identity'];\n  if (sessionTokenAuthAccessPermissionIdentity) {\n    // Verify session token auth access permission identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentity = req.cookies['session-token-auth-access-permission-credentials-identity'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentity) {\n    // Verify session token auth access permission credentials identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityToken = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityToken = req.cookies['session-token-auth-access-permission-credentials-identity-token'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityToken) {\n    // Verify session token auth access permission credentials identity token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuth.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuth = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuth = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuth) {\n    // Verify session token auth access permission credentials identity token auth logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess) {\n    // Verify session token auth access permission credentials identity token auth access logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission) {\n    // Verify session token auth access permission credentials identity token auth access permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity token logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuth) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity token auth logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccess) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity token auth access logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermission) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity token auth access permission logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentials) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentity) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity token auth access permission credentials identity logic here\n    next();\n  } else {\n    res.status(401).json({ error: 'Unauthorized' });\n  }\n};\n"
+    },
+    {
+      "path": "backend/src/middleware/verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken.ts",
+      "content": "import { Request, Response, NextFunction } from 'express';\n\nexport const verifyUserSessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken = (req: Request, res: Response, next: NextFunction) => {\n  const sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken = req.cookies['session-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token-auth-access-permission-credentials-identity-token'];\n  if (sessionTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityTokenAuthAccessPermissionCredentialsIdentityToken) {\n    // Verify session token auth access permission credentials identity token auth access permission credentials identity token auth"
+    }
+  ],
+  "dependencies": {},
+  "scripts": {},
+  "environment": {},
+  "setupInstructions": []
+}
